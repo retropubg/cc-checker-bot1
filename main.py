@@ -10,7 +10,7 @@ PREFIX = "!/."
 
 OWNER = ["6699273462"]
 
-OWNER_NAME = "@I_M_R_A_S"
+OWNER_NAME = "@eretro_7"
 
 CHANNEL = "https://t.me/cyberassemble"
 
