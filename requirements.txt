@@ -1,0 +1,4 @@
+aiogram==2.13
+requests
+PyYAML
+bs4
