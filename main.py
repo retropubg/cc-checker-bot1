@@ -8,7 +8,7 @@ import time
 PREFIX = "!/."
 
 
-OWNER = ["5136746907"]
+OWNER = ["6699273462"]
 
 OWNER_NAME = "@I_M_R_A_S"
 
