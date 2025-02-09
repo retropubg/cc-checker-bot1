@@ -1,4 +1,5 @@
-aiogram==2.13
+telethon
+sqlite3
 requests
 PyYAML
 bs4
