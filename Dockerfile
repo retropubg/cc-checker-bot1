@@ -8,7 +8,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     libffi-dev \
-    && rm -rf /var/lib/apt/lists/*
+    python3-dev
+
+python3 -m ensurepip
+python3 -m pip install --upgrade pip
+python3 -m pip install --no-cache-dir -r requirements.txt
+
 
 # Copiar el archivo requirements.txt
 COPY requirements.txt .
