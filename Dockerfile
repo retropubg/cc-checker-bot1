@@ -1,4 +1,4 @@
-FROM python:3.8-buster
+FROM python:3.8-slim
 
 WORKDIR /app
 
@@ -8,19 +8,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     libffi-dev \
-    python3-dev
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-python3 -m ensurepip
-python3 -m pip3 install --upgrade pip
-python3 -m pip3 install --no-cache-dir -r requirements.txt
-
+# Asegurar que pip está actualizado antes de instalar dependencias
+RUN python3 -m pip install --upgrade pip
 
 # Copiar el archivo requirements.txt
 COPY requirements.txt .
 
-# Actualizar pip e instalar las dependencias de PythonRUN python3 -m ensurepip && python3 -m pip install --upgrade pip
-RUN python -m pip install --upgrade pip && \
-    python -m pip install -U -r requirements.txt
+# Instalar dependencias de Python sin caché
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Copiar el resto del código
 COPY . .
