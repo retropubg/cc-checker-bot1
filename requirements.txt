@@ -1,5 +1,4 @@
 aiogram~=3.7
-teleton
 requests
 PyYAML
 bs4
