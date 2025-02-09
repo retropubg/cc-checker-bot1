@@ -1,5 +1,4 @@
 telethon
-sqlite3
 requests
 PyYAML
 bs4
