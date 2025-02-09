@@ -18,9 +18,9 @@ python3 -m pip install --no-cache-dir -r requirements.txt
 # Copiar el archivo requirements.txt
 COPY requirements.txt .
 
-# Actualizar pip e instalar las dependencias de Python
-RUN python -m pip install --upgrade pip \
-    && python -m pip install --no-cache-dir -U -r requirements.txt
+# Actualizar pip e instalar las dependencias de PythonRUN python3 -m ensurepip && python3 -m pip install --upgrade pip
+RUN pip3 install -U -r requirements.txt
+requirements.txt
 
 # Copiar el resto del código
 COPY . .
