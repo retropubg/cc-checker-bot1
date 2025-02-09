@@ -1,27 +1,9 @@
-FROM python:3.8-slim
+FROM python:3.10-slim-buster
 
-WORKDIR /app
+WORKDIR /App
 
-# Instalar dependencias del sistema necesarias
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    build-essential \
-    libssl-dev \
-    libffi-dev \
-    python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt upgrade -y
+COPY requirements.txt /requirements.txt
 
-# Asegurar que pip está actualizado antes de instalar dependencias
-RUN python3 -m pip install --upgrade pip
-
-# Copiar el archivo requirements.txt
-COPY requirements.txt .
-
-# Instalar dependencias de Python sin caché
-RUN python3 -m pip install --no-cache-dir -r requirements.txt
-
-# Copiar el resto del código
 COPY . .
-
-# Comando para ejecutar la aplicación
 CMD ["python3", "main.py"]
