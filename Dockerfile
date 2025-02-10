@@ -3,13 +3,8 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Instalar dependencias del sistema necesarias
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    build-essential \
-    libssl-dev \
-    libffi-dev \
-    python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m ensurepip && python3 -m pip install --upgrade pip
 
 # Asegurar que pip está actualizado antes de instalar dependencias
 RUN python3 -m pip3 install --upgrade pip
