@@ -1,3 +1,5 @@
-aiogram==2.25.1
+aiogram==3.14.0
 requests
+aiosqlite==0.20.0
+SQLAlchemy==2.0.36
 random_address
