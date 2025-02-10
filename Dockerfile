@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Asegurar que pip esté actualizado
 RUN python3 -m ensurepip && python3 -m pip install --upgrade pip
 
-# Instalar aiogram manualmente antes de leer requirements.txt
-RUN python3 -m pip install aiogram==3.13.1
 
 # Copiar el archivo requirements.txt
 COPY requirements.txt .
