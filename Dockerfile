@@ -12,16 +12,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Asegurar que pip está actualizado antes de instalar dependencias
-RUN python3 pip3 install --upgrade pip
+RUN python3 -m pip3 install --upgrade pip
 
 # Instalar aiogram manualmente antes de leer requirements.txt
-RUN python3 pip3 install aiogram==3.13.1
+RUN python3 -m pip3 install aiogram==3.13.1
 
 # Copiar el archivo requirements.txt
 COPY requirements.txt .
 
 # Instalar dependencias de Python sin caché
-RUN python3 pip3 install --no-cache-dir -r requirements.txt
+RUN python3 -m pip3 install --no-cache-dir -r requirements.txt
 
 # Copiar el resto del código
 COPY . .
