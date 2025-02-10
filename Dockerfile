@@ -3,7 +3,6 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Instalar dependencias del sistema necesarias
-
 RUN python3 -m ensurepip && python3 -m pip install --upgrade pip
 
 # Asegurar que pip está actualizado antes de instalar dependencias
