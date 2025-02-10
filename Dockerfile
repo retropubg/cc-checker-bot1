@@ -5,8 +5,6 @@ WORKDIR /app
 # Instalar dependencias del sistema necesarias
 RUN python3 -m ensurepip && python3 -m pip install --upgrade pip
 
-# Asegurar que pip está actualizado antes de instalar dependencias
-RUN python3 -m pip3 install --upgrade pip
 
 # Instalar aiogram manualmente antes de leer requirements.txt
 RUN python3 -m pip3 install aiogram==3.13.1
