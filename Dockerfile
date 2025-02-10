@@ -3,7 +3,7 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Instalar dependencias del sistema necesarias
-RUN python3 -m ensurepip && python3 -m pip install --upgrade pip \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     build-essential \
     libssl-dev \
