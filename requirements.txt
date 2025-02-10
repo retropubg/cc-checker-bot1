@@ -1,4 +1,4 @@
-aiogram==3.14.0
+aiogram==3.13.1
 requests
 aiosqlite==0.20.0
 SQLAlchemy==2.0.36
