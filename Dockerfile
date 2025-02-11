@@ -2,6 +2,9 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
+# Cambiar al usuario root explícitamente
+USER root
+
 # Instalar dependencias del sistema necesarias
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
@@ -13,7 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Asegurar que pip esté actualizado
 RUN python3 -m ensurepip && python3 -m pip install --upgrade pip
-
 
 # Copiar el archivo requirements.txt
 COPY requirements.txt .
