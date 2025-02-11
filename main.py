@@ -1,4 +1,5 @@
-from aiogram import executor, types
+from aiogram import Bot, Dispatcher, types
+import asyncio
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import handlers
