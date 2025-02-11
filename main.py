@@ -8,11 +8,8 @@ import time
 PREFIX = "!/."
 
 OWNER = ["6699273462"]
-
 OWNER_NAME = "@eretro_7"
-
 CHANNEL = "https://t.me/cyberassemble"
-
 GROUP = "https://t.me/assemblechat"
 
 def ok(mm):
@@ -29,4 +26,4 @@ from loader import dp, bot  # Ensure 'bot' is also imported
 
 @dp.message_handler(commands=['start', 'help'], commands_prefix=PREFIX)
 async def helpstr(message: types.Message):
-    kk = await message.reply("<b>He
+    kk = await message.reply("<b>Hello! How can I help you?</b>", parse_mode="HTML") 
