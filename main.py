@@ -26,4 +26,4 @@ from loader import dp, bot  # Ensure 'bot' is also imported
 
 @dp.message_handler(commands=['start', 'help'], commands_prefix=PREFIX)
 async def helpstr(message: types.Message):
-    kk = await message.reply("<b>Hello! How can I help you?</b>", parse_mode="HTML") 
+    kk = await message.reply("<b>He</b>")
