@@ -19,10 +19,7 @@ RUN python3 -m ensurepip && python3 -m pip install --upgrade pip
 COPY requirements.txt .
 
 # Instalar dependencias de Python sin caché
-USER root  # Asegúrate de estar ejecutando como root si es necesario
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
-USER your_user  # Vuelve a cambiar al usuario no root si es necesario
-
 
 # Copiar el resto del código
 COPY . .
