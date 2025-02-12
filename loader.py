@@ -1,19 +1,6 @@
-from aiogram import Bot, Dispatcher
-from aiogram.fsm.storage.memory import MemoryStorage
-
-# Token de tu bot
-bot = Bot(token="8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y")
-dp = Dispatcher(bot, storage=MemoryStorage())  # Error en Aiogram 3.x
-
-# Función para registrar todos los handlers
-def register_all_handlers():
-    from handlers.bin_info import register_handlers  # Importar y registrar
-    from handlers.mchk import register_handlers
-    from handlers.admin import register_handlers
-    from handlers.sk import register_handlers
-    from handlers.ssh import register_handlers
-    from handlers.callback import register_handlers
-    from handlers.pp import register_handlers
-    from handlers.scrape import register_handlers
-
-    register_handlers(dp)  # Registra los handlers de cada módulo
+from aiogram import Bot, Dispatcher, types
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+BOT_TOKEN = '5836125737:AAEMvAxSeKA6O6ViOuay68v-u1suJ_IhfI'
+bot = Bot(token=BOT_TOKEN, parse_mode=types.ParseMode.HTML)
+storage = MemoryStorage()
+dp = Dispatcher(bot, storage=storage)
