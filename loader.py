@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
 # Token del bot (¡NO lo compartas públicamente!)
-BOT_TOKEN = "TU_TOKEN_AQUI"
+BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
 
 # ID del chat donde enviar el mensaje
 CHAT_ID = -1002474159521  # Reemplázalo con el ID correcto
