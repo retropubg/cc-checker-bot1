@@ -1,23 +1,27 @@
+import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
-# Sustituye esto con tu token real
-BOT_TOKEN = "7020048572:AAG5bV9yhIk4DVw3ynUo-j9GHS743f9xVyA"
+# Token del bot (¡NO lo compartas públicamente!)
+BOT_TOKEN = "TU_TOKEN_AQUI"
 
-# ID del chat donde quieres enviar el mensaje
-CHAT_ID = -1002474159521  # Reemplaza con el ID de tu chat
+# ID del chat donde enviar el mensaje
+CHAT_ID = -1002474159521  # Reemplázalo con el ID correcto
 
-# Crear el objeto bot
+# Crear el bot y el dispatcher
 bot = Bot(token=BOT_TOKEN)
-
-# Configurar el almacenamiento de FSM
 storage = MemoryStorage()
-
-# Crear el Dispatcher
 dp = Dispatcher(storage=storage)
-dp["bot"] = bot
 
-# Función asincrónica para enviar un mensaje
 async def send_message():
-    # Enviar mensaje al grupo
+    """Envia un mensaje al grupo de Telegram"""
     await bot.send_message(CHAT_ID, "Este es un mensaje enviado desde mi bot.", parse_mode="HTML")
+
+async def main():
+    """Ejecuta la función de envío de mensaje y cierra el bot correctamente"""
+    await send_message()
+    await bot.session.close()
+
+# Ejecutar la función principal
+if __name__ == "__main__":
+    asyncio.run(main())
