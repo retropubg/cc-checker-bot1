@@ -1,12 +1,11 @@
 from aiogram import Bot, Dispatcher
-from aiogram.types import ParseMode
-from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.enums import ParseMode  # Aiogram 3.x usa "enums"
+from aiogram.fsm.storage.memory import MemoryStorage  # Aiogram 3.x usa "fsm.storage"
 
-BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
+BOT_TOKEN = "TU_BOT_TOKEN"
 
 bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
 storage = MemoryStorage()
-dp = Dispatcher(storage=storage)  # En Aiogram 3, NO se pasa bot aquí.
+dp = Dispatcher(storage=storage)  # En Aiogram 3.x, no se pasa "bot" aquí
 
-# Asociar el bot manualmente al dispatcher
-dp["bot"] = bot
+dp["bot"] = bot  # Se asigna manualmente el bot al Dispatcher
