@@ -16,4 +16,4 @@ python-telegram-bot
 envparse
 rejson
 numpy
-express
+express==4.17.1
