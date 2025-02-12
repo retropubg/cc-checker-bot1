@@ -1,36 +1,36 @@
 from aiogram import Bot, Dispatcher, types
-from aiogram.fsm import FSMContext
-from aiogram.fsm.storage.memory import MemoryStorage  # Esto debería estar disponible en v3.x
-import asyncio
+from aiogram.fsm import State, StatesGroup
+from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.types import ParseMode
+import logging
 
+# Configuración básica
 BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
-CHAT_ID = -1002474159521  # Reemplázalo con el ID correcto
-
-# Crear el bot y el dispatcher
 bot = Bot(token=BOT_TOKEN)
-storage = MemoryStorage()  # Almacenamiento en memoria para FSM
+storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 
-# Manejador de comandos 'start'
-@dp.message(commands=['start'])
+# Configuración de logging (opcional)
+logging.basicConfig(level=logging.INFO)
+
+# Definir los estados
+class Form(StatesGroup):
+    name = State()  # Estado para el nombre
+
+# Comando de inicio
+@dp.message_handler(commands=['start'])
 async def cmd_start(message: types.Message):
-    await message.answer("¡Hola! Soy tu bot. ¿En qué puedo ayudarte?", parse_mode="HTML")
+    await message.answer("¡Hola! ¿Cuál es tu nombre?")
+    await Form.name.set()  # Establece el estado 'name'
 
-# Manejador de comandos 'help'
-@dp.message(commands=['help'])
-async def cmd_help(message: types.Message):
-    await message.answer("Puedes usar los siguientes comandos:\n/start para comenzar.\n/help para obtener ayuda.", parse_mode="HTML")
+# Recibir el nombre y cambiar al siguiente estado
+@dp.message_handler(state=Form.name)
+async def process_name(message: types.Message, state: FSMContext):
+    await message.answer(f"¡Hola {message.text}!")
+    await state.finish()  # Termina el estado
 
-async def main():
-    """Ejecuta el bot y espera a que lleguen mensajes"""
-    try:
-        # Inicia el bot y escucha los comandos.
-        await dp.start_polling(bot)
-    except Exception as e:
-        print(f"Error al ejecutar el bot: {e}")
-    finally:
-        await bot.session.close()
-
-# Ejecutar la función principal
+# Ejecutar el bot
 if __name__ == "__main__":
-    asyncio.run(main())
+    from aiogram import executor
+    executor.start_polling(dp)
+    
