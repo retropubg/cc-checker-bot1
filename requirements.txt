@@ -1,4 +1,4 @@
-aiogram==3.0.0b9
+aiogram==2.21
 aiohttp
 pymongo
 telethon
