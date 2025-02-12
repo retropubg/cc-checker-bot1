@@ -10,7 +10,6 @@ aioredis
 envparse
 pyyaml
 redis
-translate-api
 sqlalchemy
 pymongo[srv]
 python-telegram-bot
