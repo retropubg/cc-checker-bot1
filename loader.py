@@ -1,16 +1,23 @@
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 
+# Sustituye esto con tu token real
 BOT_TOKEN = "7020048572:AAG5bV9yhIk4DVw3ynUo-j9GHS743f9xVyA"
 
-# Crear el objeto bot sin parse_mode
-bot = Bot("7020048572:AAG5bV9yhIk4DVw3ynUo-j9GHS743f9xVyA")
-storage = MemoryStorage()
-dp = Dispatcher(storage=storage)
+# ID del chat donde quieres enviar el mensaje
+CHAT_ID = -1002474159521  # Reemplaza con el ID de tu chat
 
-# Asignar el bot manualmente
+# Crear el objeto bot
+bot = Bot(token=BOT_TOKEN)
+
+# Configurar el almacenamiento de FSM
+storage = MemoryStorage()
+
+# Crear el Dispatcher
+dp = Dispatcher(storage=storage)
 dp["bot"] = bot
 
-# Ejemplo de envío de mensaje con parse_mode
+# Función asincrónica para enviar un mensaje
 async def send_message():
-    await bot.send_message(chat_id="TU_CHAT_ID", text="Este es un <b>mensaje HTML</b>", parse_mode="HTML")
+    # Enviar mensaje al grupo
+    await bot.send_message(CHAT_ID, "Este es un mensaje enviado desde mi bot.", parse_mode="HTML")
