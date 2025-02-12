@@ -1,30 +1,33 @@
-import asyncio
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, types
 from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.types import ParseMode
+import asyncio
 
-# Token del bot (¡NO lo compartas públicamente!)
 BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
-
-# ID del chat donde enviar el mensaje
-CHAT_ID = -1002262720445  # Reemplázalo con el ID correcto
+CHAT_ID = "-1002474159521"  # Reemplázalo con el ID correcto
 
 # Crear el bot y el dispatcher
 bot = Bot(token=BOT_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 
-async def send_message():
-    """Envia un mensaje al grupo de Telegram"""
-    try:
-        await bot.send_message(CHAT_ID, "Este es un mensaje enviado desde mi bot.", parse_mode="HTML")
-    except Exception as e:
-        print(f"Error al enviar el mensaje: {e}")
-    finally:
-        await bot.session.close()  # Cierra la sesión correctamente
+@dp.message_handler(commands=['start'])
+async def cmd_start(message: types.Message):
+    await message.answer("¡Hola! Soy tu bot. ¿En qué puedo ayudarte?", parse_mode=ParseMode.HTML)
+
+@dp.message_handler(commands=['help'])
+async def cmd_help(message: types.Message):
+    await message.answer("Puedes usar los siguientes comandos:\n/start para comenzar.\n/help para obtener ayuda.", parse_mode=ParseMode.HTML)
 
 async def main():
-    """Ejecuta la función de envío de mensaje"""
-    await send_message()
+    """Ejecuta el bot y espera a que lleguen mensajes"""
+    try:
+        # Inicia el bot y escucha los comandos.
+        await dp.start_polling(bot)
+    except Exception as e:
+        print(f"Error al ejecutar el bot: {e}")
+    finally:
+        await bot.session.close()
 
 # Ejecutar la función principal
 if __name__ == "__main__":
