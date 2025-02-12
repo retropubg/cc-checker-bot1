@@ -3,7 +3,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 # Token de tu bot
 bot = Bot(token="8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y")
-dp = Dispatcher(bot, storage=MemoryStorage())  # Dispatcher centralizado
+dp = Dispatcher(bot, storage=MemoryStorage())  # Error en Aiogram 3.x
 
 # Función para registrar todos los handlers
 def register_all_handlers():
