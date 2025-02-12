@@ -1,5 +1,6 @@
 from aiogram import Bot, Dispatcher, types
-from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.fsm import FSMContext
+from aiogram.fsm.storage.memory import MemoryStorage  # Esto debería estar disponible en v3.x
 import asyncio
 
 BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
@@ -7,7 +8,7 @@ CHAT_ID = -1002474159521  # Reemplázalo con el ID correcto
 
 # Crear el bot y el dispatcher
 bot = Bot(token=BOT_TOKEN)
-storage = MemoryStorage()
+storage = MemoryStorage()  # Almacenamiento en memoria para FSM
 dp = Dispatcher(storage=storage)
 
 # Manejador de comandos 'start'
@@ -33,4 +34,3 @@ async def main():
 # Ejecutar la función principal
 if __name__ == "__main__":
     asyncio.run(main())
-    
