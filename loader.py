@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher
-from aiogram.enums import ParseMode  # Aiogram 3.x usa "enums"
-from aiogram.fsm.storage.memory import MemoryStorage  # Aiogram 3.x usa "fsm.storage"
+from aiogram.types import ParseMode  # Aiogram 3.x usa directamente "types" para ParseMode
+from aiogram.fsm.storage.memory import MemoryStorage  # Para el almacenamiento en memoria
 
 BOT_TOKEN = "TU_BOT_TOKEN"
 
