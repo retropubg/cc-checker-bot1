@@ -10,11 +10,13 @@ bot = Bot(token=BOT_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
 
-@dp.message_handler(commands=['start'])
+# Manejador de comandos 'start'
+@dp.message(commands=['start'])
 async def cmd_start(message: types.Message):
     await message.answer("¡Hola! Soy tu bot. ¿En qué puedo ayudarte?", parse_mode="HTML")
 
-@dp.message_handler(commands=['help'])
+# Manejador de comandos 'help'
+@dp.message(commands=['help'])
 async def cmd_help(message: types.Message):
     await message.answer("Puedes usar los siguientes comandos:\n/start para comenzar.\n/help para obtener ayuda.", parse_mode="HTML")
 
@@ -31,3 +33,4 @@ async def main():
 # Ejecutar la función principal
 if __name__ == "__main__":
     asyncio.run(main())
+    
