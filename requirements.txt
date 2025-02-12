@@ -1,10 +1,6 @@
 aiogram
 aiohttp
-pymongo
-telethon
-pyrogram
 requests
-envparse
 sqlalchemy
 python-telegram-bot
 
