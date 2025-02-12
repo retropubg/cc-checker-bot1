@@ -1,10 +1,9 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.fsm.storage.memory import MemoryStorage
-from aiogram.types import ParseMode
 import asyncio
 
 BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
-CHAT_ID = "-1002474159521"  # Reemplázalo con el ID correcto
+CHAT_ID = -1002474159521  # Reemplázalo con el ID correcto
 
 # Crear el bot y el dispatcher
 bot = Bot(token=BOT_TOKEN)
@@ -13,11 +12,11 @@ dp = Dispatcher(storage=storage)
 
 @dp.message_handler(commands=['start'])
 async def cmd_start(message: types.Message):
-    await message.answer("¡Hola! Soy tu bot. ¿En qué puedo ayudarte?", parse_mode=ParseMode.HTML)
+    await message.answer("¡Hola! Soy tu bot. ¿En qué puedo ayudarte?", parse_mode="HTML")
 
 @dp.message_handler(commands=['help'])
 async def cmd_help(message: types.Message):
-    await message.answer("Puedes usar los siguientes comandos:\n/start para comenzar.\n/help para obtener ayuda.", parse_mode=ParseMode.HTML)
+    await message.answer("Puedes usar los siguientes comandos:\n/start para comenzar.\n/help para obtener ayuda.", parse_mode="HTML")
 
 async def main():
     """Ejecuta el bot y espera a que lleguen mensajes"""
