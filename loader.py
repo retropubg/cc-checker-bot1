@@ -6,7 +6,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 BOT_TOKEN = "8048311747:AAGyGx8dCxU3zsDsct5Hd6T6Ign5G6gVq6Y"
 
 # ID del chat donde enviar el mensaje
-CHAT_ID = -1002474159521  # Reemplázalo con el ID correcto
+CHAT_ID = -1002262720445  # Reemplázalo con el ID correcto
 
 # Crear el bot y el dispatcher
 bot = Bot(token=BOT_TOKEN)
